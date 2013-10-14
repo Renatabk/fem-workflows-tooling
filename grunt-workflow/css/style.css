@@ -122,11 +122,11 @@ body {
   z-index: 5;
 }
 #loadout .character .move-left {
-  background-image: url(../../common/img/icon/move-left.png);
+  background-image: url(../../../common/img/icon/move-left.png);
   left: -8px;
 }
 #loadout .character .move-right {
-  background-image: url(../../common/img/icon/move-right.png);
+  background-image: url(../../../common/img/icon/move-right.png);
   right: -8px;
 }
 #loadout .character .arrow {
@@ -389,110 +389,110 @@ body {
   text-align: center;
 }
 .character .portrait {
-  background-image: url(../../common/img/empty.character.frame.png);
+  background-image: url(../../../common/img/empty.character.frame.png);
   background-size: 150px;
   z-index: 1;
   position: relative;
 }
 #stat-editor .armor .icon {
-  background-image: url("../../common/img/icon/armor.png");
+  background-image: url("../../../common/img/icon/armor.png");
 }
 #stat-editor .strength .icon {
-  background-image: url("../../common/img/icon/strength.png");
+  background-image: url("../../../common/img/icon/strength.png");
 }
 #stat-editor .willpower .icon {
-  background-image: url("../../common/img/icon/willpower.png");
+  background-image: url("../../../common/img/icon/willpower.png");
 }
 #stat-editor .exertion .icon {
-  background-image: url("../../common/img/icon/exertion.png");
+  background-image: url("../../../common/img/icon/exertion.png");
 }
 #stat-editor .break .icon {
-  background-image: url("../../common/img/icon/break.png");
+  background-image: url("../../../common/img/icon/break.png");
 }
 #stat-editor .special .icon {
-  background-image: url("../../common/img/icon/special.png");
+  background-image: url("../../../common/img/icon/special.png");
 }
 .character.raider .portrait {
-  background-image: url("../../common/img/characters/base/raider.png");
+  background-image: url("../../../common/img/characters/base/raider.png");
 }
 .character.archer .portrait {
-  background-image: url("../../common/img/characters/base/archer.png");
+  background-image: url("../../../common/img/characters/base/archer.png");
 }
 .character.warrior .portrait {
-  background-image: url("../../common/img/characters/base/warrior.png");
+  background-image: url("../../../common/img/characters/base/warrior.png");
 }
 .character.shieldbanger .portrait {
-  background-image: url("../../common/img/characters/base/shieldbanger.png");
+  background-image: url("../../../common/img/characters/base/shieldbanger.png");
 }
 #stat-editor .portrait.warhawk {
-  background-image: url("../../common/img/characters/portraits/warhawk.png");
+  background-image: url("../../../common/img/characters/portraits/warhawk.png");
 }
 #stat-editor .portrait.warleader {
-  background-image: url("../../common/img/characters/portraits/warleader.png");
+  background-image: url("../../../common/img/characters/portraits/warleader.png");
 }
 #stat-editor .portrait.warmaster {
-  background-image: url("../../common/img/characters/portraits/warmaster.png");
+  background-image: url("../../../common/img/characters/portraits/warmaster.png");
 }
 #stat-editor .portrait.bowmaster {
-  background-image: url("../../common/img/characters/portraits/bowmaster.png");
+  background-image: url("../../../common/img/characters/portraits/bowmaster.png");
 }
 #stat-editor .portrait.skystriker {
-  background-image: url("../../common/img/characters/portraits/skystriker.png");
+  background-image: url("../../../common/img/characters/portraits/skystriker.png");
 }
 #stat-editor .portrait.siegearcher {
-  background-image: url("../../common/img/characters/portraits/siegearcher.png");
+  background-image: url("../../../common/img/characters/portraits/siegearcher.png");
 }
 #stat-editor .portrait.raidmaster {
-  background-image: url("../../common/img/characters/portraits/raidmaster.png");
+  background-image: url("../../../common/img/characters/portraits/raidmaster.png");
 }
 #stat-editor .portrait.thrasher {
-  background-image: url("../../common/img/characters/portraits/thrasher.png");
+  background-image: url("../../../common/img/characters/portraits/thrasher.png");
 }
 #stat-editor .portrait.backbiter {
-  background-image: url("../../common/img/characters/portraits/backbiter.png");
+  background-image: url("../../../common/img/characters/portraits/backbiter.png");
 }
 #stat-editor .portrait.strongarm {
-  background-image: url("../../common/img/characters/portraits/strongarm.png");
+  background-image: url("../../../common/img/characters/portraits/strongarm.png");
 }
 #stat-editor .portrait.provoker {
-  background-image: url("../../common/img/characters/portraits/provoker.png");
+  background-image: url("../../../common/img/characters/portraits/provoker.png");
 }
 #stat-editor .portrait.shieldmaster {
-  background-image: url("../../common/img/characters/portraits/shieldmaster.png");
+  background-image: url("../../../common/img/characters/portraits/shieldmaster.png");
 }
 .character.warhawk .portrait {
-  background-image: url("../../common/img/characters/rank1/warhawk.png");
+  background-image: url("../../../common/img/characters/rank1/warhawk.png");
 }
 .character.warleader .portrait {
-  background-image: url("../../common/img/characters/rank1/warleader.png");
+  background-image: url("../../../common/img/characters/rank1/warleader.png");
 }
 .character.warmaster .portrait {
-  background-image: url("../../common/img/characters/rank1/warmaster.png");
+  background-image: url("../../../common/img/characters/rank1/warmaster.png");
 }
 .character.bowmaster .portrait {
-  background-image: url("../../common/img/characters/rank1/bowmaster.png");
+  background-image: url("../../../common/img/characters/rank1/bowmaster.png");
 }
 .character.skystriker .portrait {
-  background-image: url("../../common/img/characters/rank1/skystriker.png");
+  background-image: url("../../../common/img/characters/rank1/skystriker.png");
 }
 .character.siegearcher .portrait {
-  background-image: url("../../common/img/characters/rank1/siegearcher.png");
+  background-image: url("../../../common/img/characters/rank1/siegearcher.png");
 }
 .character.raidmaster .portrait {
-  background-image: url("../../common/img/characters/rank1/raidmaster.png");
+  background-image: url("../../../common/img/characters/rank1/raidmaster.png");
 }
 .character.thrasher .portrait {
-  background-image: url("../../common/img/characters/rank1/thrasher.png");
+  background-image: url("../../../common/img/characters/rank1/thrasher.png");
 }
 .character.backbiter .portrait {
-  background-image: url("../../common/img/characters/rank1/backbiter.png");
+  background-image: url("../../../common/img/characters/rank1/backbiter.png");
 }
 .character.strongarm .portrait {
-  background-image: url("../../common/img/characters/rank1/strongarm.png");
+  background-image: url("../../../common/img/characters/rank1/strongarm.png");
 }
 .character.provoker .portrait {
-  background-image: url("../../common/img/characters/rank1/provoker.png");
+  background-image: url("../../../common/img/characters/rank1/provoker.png");
 }
 .character.shieldmaster .portrait {
-  background-image: url("../../common/img/characters/rank1/shieldmaster.png");
+  background-image: url("../../../common/img/characters/rank1/shieldmaster.png");
 }
