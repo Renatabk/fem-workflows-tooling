@@ -48,15 +48,30 @@ module.exports = function(grunt) {
       css: {
         src: 'css/style.css',
         dest: 'dist/css/style.css'
+      },
+      images: {
+        src: '../common/img/**/*',
+        dest: 'dist/img/'
       }
     },
     watch: {
-      app_and_vendor_sources: {
-        files: '<%= concat.app.src %>',
+      options: {
+        livereload: true
+      },
+      app: {
+        files: ['<%= concat.app.src %>', '<%= copy.html.src %>'],
         tasks: ['concat', 'copy']
+      }
+    },
+    server: {
+      base: "dist",
+      web: {
+        port: 8000
       }
     }
   });
+
+  grunt.loadTasks('tasks');
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -66,7 +81,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task.
-  grunt.registerTask('default', ['clean', 'concat', 'copy']);
+  grunt.registerTask('default', ['clean', 'concat', 'copy', 'server', 'watch']);
   grunt.registerTask('build', ['clean', 'concat', 'uglify', 'copy']);
 
 };
