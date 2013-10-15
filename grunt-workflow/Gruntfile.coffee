@@ -14,8 +14,19 @@ module.exports = (grunt) ->
 
     concat:
       app:
-        dest: "dist/js/app.js"
-        src: ["vendor/js/jquery.js", "vendor/js/angular.js", "vendor/js/underscore.js", "vendor/js/**/*.js", "js/config/**/*.js", "js/app.js", "js/data/**/*.js", "js/directives/**/*.js", "js/controllers/**/*.js", "js/**/*.js"]
+        dest: "dist/js/app.min.js"
+        src: [
+          "vendor/js/jquery.js"
+          "vendor/js/angular.js"
+          "vendor/js/underscore.js"
+          "vendor/js/**/*.js"
+          "js/config/**/*.js"
+          "js/app.js"
+          "js/data/**/*.js"
+          "js/directives/**/*.js"
+          "js/controllers/**/*.js"
+          "js/**/*.js"
+        ]
 
     uglify:
       options:
@@ -26,22 +37,22 @@ module.exports = (grunt) ->
         dest: "dist/js/app.min.js"
 
     less:
+      options:
+        paths: ["css"]
+        ieCompat: false
+
       development:
-        options:
-          paths: ["css"]
-          ieCompat: false
-
-        files:
-          "dist/css/style.css": "css/style.less"
-
-      production:
-        options:
-          paths: ["css"]
-          yuicompress: true
-          ieCompat: false
-
         files:
           "dist/css/style.min.css": "css/style.less"
+
+    open:
+      dev:
+        path: "http://localhost:8000"
+
+    cssmin:
+      styles:
+        files:
+          "dist/css/style.min.css" : "dist/css/style.min.css"
 
     copy:
       html:
@@ -68,8 +79,9 @@ module.exports = (grunt) ->
   grunt.loadTasks "tasks"
 
   # Loads all plugins that match "grunt-", in this case all of our current plugins
-  require('matchdep').filter('grunt-*').forEach(grunt.loadNpmTasks)
+  require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks)
 
   # Default task.
-  grunt.registerTask "default", ["clean", "less:development", "concat", "copy", "server", "watch"]
-  grunt.registerTask "build", ["clean", "less:production", "concat", "uglify", "copy"]
+  grunt.registerTask "default", ["clean", "less", "concat", "copy", "server", "open", "watch"]
+  grunt.registerTask "build", ["clean", "less", "cssmin", "concat", "uglify", "copy"]
+  grunt.registerTask "prodsim", ["build", "server", "open", "watch"]
