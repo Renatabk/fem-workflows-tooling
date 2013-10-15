@@ -40,14 +40,31 @@ module.exports = function(grunt) {
         dest: 'dist/js/app.min.js'
       }
     },
+    less: {
+      development: {
+        options: {
+          paths: ["css"],
+          ieCompat: false
+        },
+        files: {
+          "dist/css/style.css": "css/style.less"
+        }
+      },
+      production: {
+        options: {
+          paths: ["css"],
+          yuicompress: true,
+          ieCompat: false
+        },
+        files: {
+          "dist/css/style.min.css": "css/style.less"
+        }
+      }
+    },
     copy: {
       html: {
         src: 'index.html',
         dest: 'dist/index.html'
-      },
-      css: {
-        src: 'css/style.css',
-        dest: 'dist/css/style.css'
       },
       images: {
         src: '../common/img/**/*',
@@ -79,9 +96,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // Default task.
-  grunt.registerTask('default', ['clean', 'concat', 'copy', 'server', 'watch']);
-  grunt.registerTask('build', ['clean', 'concat', 'uglify', 'copy']);
+  grunt.registerTask('default', ['clean', 'less:development', 'concat', 'copy', 'server', 'watch']);
+  grunt.registerTask('build', ['clean', 'less:production', 'concat', 'uglify', 'copy']);
 
 };
