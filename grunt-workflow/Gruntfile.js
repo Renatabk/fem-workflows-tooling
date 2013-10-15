@@ -40,6 +40,7 @@ module.exports = function(grunt) {
         dest: 'dist/js/app.min.js'
       }
     },
+
     less: {
       development: {
         options: {
@@ -67,7 +68,7 @@ module.exports = function(grunt) {
         dest: 'dist/index.html'
       },
       images: {
-        src: '../common/img/**/*',
+        src: 'img/**/*',
         dest: 'dist/img/'
       }
     },
