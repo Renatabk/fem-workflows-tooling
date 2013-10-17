@@ -24,7 +24,8 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-less": "git://github.com/davemo/grunt-contrib-less.git",
     "grunt-contrib-cssmin": "~0.6.2",
-    "grunt-contrib-coffee": "~0.7.0"
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-newer": "~0.5.4"
   },
   "devDependencies": {
     "express": "~3.4.0",

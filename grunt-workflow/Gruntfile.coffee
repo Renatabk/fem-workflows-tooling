@@ -12,11 +12,15 @@ module.exports = (grunt) ->
     clean:
       dist: ["dist", "generated"]
 
+    newer:
+      options:
+        timestamps: "generated/timestamps"
+
     coffee:
-      pre_concat:
+      compile:
         expand: true
         cwd: 'app/js'
-        src: ['**/*.coffee']
+        src: '**/*.coffee'
         dest: 'generated/compiled-coffee'
         ext: '.js'
 
@@ -68,14 +72,13 @@ module.exports = (grunt) ->
         dest: "dist/index.html"
 
     watch:
-      options:
-        livereload: true
-
       coffee:
         files: ["app/js/**/*.coffee"]
-        tasks: ["coffee"]
+        tasks: ["newer:coffee"]
 
       app:
+        options:
+          livereload: true
         files: ["<%= concat.app.src %>", "<%= copy.html.src %>"]
         tasks: ["concat", "copy"]
 
@@ -90,6 +93,6 @@ module.exports = (grunt) ->
   require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks)
 
   # Default task.
-  grunt.registerTask "default", ["clean", "less", "coffee", "concat", "copy", "server", "open", "watch"]
+  grunt.registerTask "default", ["clean", "less", "newer:coffee", "concat", "copy", "server", "open", "watch"]
   grunt.registerTask "build", ["clean", "less", "cssmin", "coffee", "concat", "uglify", "copy"]
   grunt.registerTask "prodsim", ["build", "server", "open", "watch"]
