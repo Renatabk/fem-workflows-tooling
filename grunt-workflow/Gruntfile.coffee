@@ -10,7 +10,15 @@ module.exports = (grunt) ->
 
     # Task configuration.
     clean:
-      dist: ["dist"]
+      dist: ["dist", "generated"]
+
+    coffee:
+      pre_concat:
+        expand: true
+        cwd: 'app/js'
+        src: ['**/*.coffee']
+        dest: 'generated/compiled-coffee'
+        ext: '.js'
 
     concat:
       app:
@@ -20,12 +28,12 @@ module.exports = (grunt) ->
           "vendor/js/angular.js"
           "vendor/js/underscore.js"
           "vendor/js/**/*.js"
-          "js/config/**/*.js"
-          "js/app.js"
-          "js/data/**/*.js"
-          "js/directives/**/*.js"
-          "js/controllers/**/*.js"
-          "js/**/*.js"
+          "generated/compiled-coffee/config/**/*.js"
+          "generated/compiled-coffee/app.js"
+          "generated/compiled-coffee/data/**/*.js"
+          "generated/compiled-coffee/directives/**/*.js"
+          "generated/compiled-coffee/controllers/**/*.js"
+          "generated/compiled-coffee/**/*.js"
         ]
 
     uglify:
@@ -38,12 +46,12 @@ module.exports = (grunt) ->
 
     less:
       options:
-        paths: ["css"]
+        paths: ["app/css"]
         ieCompat: false
 
       development:
         files:
-          "dist/css/style.min.css": "css/style.less"
+          "dist/css/style.min.css": "app/css/style.less"
 
     open:
       dev:
@@ -82,6 +90,6 @@ module.exports = (grunt) ->
   require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks)
 
   # Default task.
-  grunt.registerTask "default", ["clean", "less", "concat", "copy", "server", "open", "watch"]
-  grunt.registerTask "build", ["clean", "less", "cssmin", "concat", "uglify", "copy"]
+  grunt.registerTask "default", ["clean", "less", "coffee", "concat", "copy", "server", "open", "watch"]
+  grunt.registerTask "build", ["clean", "less", "cssmin", "coffee", "concat", "uglify", "copy"]
   grunt.registerTask "prodsim", ["build", "server", "open", "watch"]
