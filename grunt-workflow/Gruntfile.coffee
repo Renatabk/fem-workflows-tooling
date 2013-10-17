@@ -67,13 +67,13 @@ module.exports = (grunt) ->
         src: "index.html"
         dest: "dist/index.html"
 
-      images:
-        src: "img/**/*"
-        dest: "dist/img/"
-
     watch:
       options:
         livereload: true
+
+      coffee:
+        files: ["app/js/**/*.coffee"]
+        tasks: ["coffee"]
 
       app:
         files: ["<%= concat.app.src %>", "<%= copy.html.src %>"]
