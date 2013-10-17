@@ -93,6 +93,6 @@ module.exports = (grunt) ->
   require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks)
 
   # Default task.
-  grunt.registerTask "default", ["clean", "less", "newer:coffee", "concat", "copy", "server", "open", "watch"]
+  grunt.registerTask "default", ["less", "newer:coffee", "concat", "copy", "server", "open", "watch"]
   grunt.registerTask "build", ["clean", "less", "cssmin", "coffee", "concat", "uglify", "copy"]
   grunt.registerTask "prodsim", ["build", "server", "open", "watch"]
