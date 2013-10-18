@@ -28,10 +28,12 @@ module.exports = (grunt) ->
       app:
         dest: "dist/js/app.min.js"
         src: [
-          "vendor/js/jquery.js"
-          "vendor/js/angular.js"
-          "vendor/js/underscore.js"
-          "vendor/js/**/*.js"
+          "bower_modules/jquery/jquery.js"
+          "bower_modules/angular/angular.js"
+          "bower_modules/angular-route/angular-route.js"
+          "bower_modules/underscore/underscore.js"
+          "bower_modules/extend.js/index.js"
+          "bower_modules/base64js/base64.js"
           "generated/compiled-coffee/config/**/*.js"
           "generated/compiled-coffee/app.js"
           "generated/compiled-coffee/data/**/*.js"
