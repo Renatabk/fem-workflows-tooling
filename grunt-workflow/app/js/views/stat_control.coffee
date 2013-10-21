@@ -1,4 +1,4 @@
-def 'tbs.views.StatControl', class StatControl extends Backbone.Fixins.SuperView
+class StatControl extends Backbone.Fixins.SuperView
 
   tagName: "li"
 

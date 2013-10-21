@@ -26,7 +26,10 @@
     "grunt-contrib-cssmin": "~0.6.2",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-newer": "~0.5.4",
-    "grunt-contrib-handlebars": "~0.5.11"
+    "grunt-contrib-handlebars": "~0.5.11",
+    "backbone": "~1.1.0",
+    "underscore": "~1.5.2",
+    "jquery": "~1.8.3"
   },
   "devDependencies": {
     "express": "~3.4.0",

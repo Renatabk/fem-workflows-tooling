@@ -1,4 +1,6 @@
-def 'tbs.converters.buildStatsCollection', (raw_stats_array, rank) ->
+UnitStats = require("./collections/unit_stats.coffee")
+
+module.exports = (raw_stats_array, rank) ->
 
   STATS = ["armor", "strength", "willpower", "exertion", "break"]
 
@@ -12,6 +14,6 @@ def 'tbs.converters.buildStatsCollection', (raw_stats_array, rank) ->
     current: min_max[0]
     stat: STATS[i]
 
-  new tbs.collections.UnitStats(model_values)
+  new UnitStats(model_values)
 
 

@@ -1,4 +1,7 @@
-def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
+StatControl = require("./stat_control.coffee")
+UnitStats = require("../collections/unit_stats.coffee")
+
+module.exports = class StatEditor extends Backbone.Fixins.SuperView
 
   events:
     "click .reset"       : "resetToMinimums"
@@ -16,7 +19,7 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
   renderStatControls: =>
     unit_stats = @model.get('stats')
     unit_stats.each (stat, i) =>
-      @$(".stats").append(new tbs.views.StatControl(unit: @model, model: stat).render().el)
+      @$(".stats").append(new StatControl(unit: @model, model: stat).render().el)
 
   resetToMinimums: =>
     @model.set("allocated_stat_points", 0)
@@ -48,7 +51,7 @@ def 'tbs.views.StatEditor', class StatEditor extends Backbone.Fixins.SuperView
   show: (unit) =>
     @model = unit
     # had to clone stats here, as editing the same class was buggy
-    @model.set("stats", new tbs.collections.UnitStats(@model.get('stats').toJSON()))
+    @model.set("stats", new UnitStats(@model.get('stats').toJSON()))
     @model.on("change:allocated_stat_points", @renderTotals)
     @model.on("change:rank", @renderRankChanger)
     @model.on("change:rank", @renderRankInEditorTitle)

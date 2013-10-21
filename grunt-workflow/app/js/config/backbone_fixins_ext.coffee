@@ -1,3 +1,5 @@
+Backbone = require("backbone")
+
 Backbone.Fixins.configure
   templateFunction: (name) ->
     JST[name] || throw "Could not find a template in JST[#{name}]"

@@ -1,5 +1,7 @@
-def 'tbs.collections.Units', class Units extends Backbone.Collection
-  model: tbs.models.Unit
+Unit     = require("../models/unit.coffee")
+
+module.exports = class Units extends Backbone.Collection
+  model: Unit
 
   UNIT_NAME_FULL_TO_ENCODED:
     'raidmaster'  : 'rm'
@@ -63,7 +65,7 @@ def 'tbs.collections.Units', class Units extends Backbone.Collection
     model_data = []
     _(units).each (unit_data) =>
       if unit_data[4].length is 0
-        model_data.push(new tbs.models.Unit)
+        model_data.push(new unit)
       else
         model_data.push(
           name: @UNIT_NAME_ENCODED_TO_FULL[unit_data[0]]

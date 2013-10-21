@@ -1,4 +1,7 @@
-def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
+Unit     = require("../models/unit.coffee")
+app      = require("../app.coffee")
+
+module.exports = class LoadoutSlot extends Backbone.Fixins.SuperView
 
   tagName: "li"
 
@@ -12,7 +15,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
   removeFromLoadout: (e) ->
     if confirm("Remove #{@model.get('name')} from slot #{@slot + 1}?")
       @model.clear()
-      @model.set(new tbs.models.Unit().attributes)
+      @model.set(new Unit().attributes)
       Backbone.trigger("choose:unit")
     else
       e.preventDefault()
@@ -80,7 +83,7 @@ def 'tbs.views.LoadoutSlot', class LoadoutSlot extends Backbone.Fixins.SuperView
       @$(".help-text").text("Click a unit below")
 
   updateMaxStatPoints: (__, new_rank) =>
-    @model.set("max_stat_points", tbs.BattlePlanner.maxStatPointsForRank(new_rank))
+    @model.set("max_stat_points", app.maxStatPointsForRank(new_rank))
 
 
 

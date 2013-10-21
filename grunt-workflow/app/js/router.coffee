@@ -1,4 +1,4 @@
-def 'tbs.Router', class Router extends Backbone.Router
+module.exports = class Router extends Backbone.Router
 
   initialize: (options) =>
     @loadout = options.loadout

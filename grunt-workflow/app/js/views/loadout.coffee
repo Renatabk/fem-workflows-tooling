@@ -1,4 +1,6 @@
-def 'tbs.views.Loadout', class Loadout extends Backbone.View
+LoadoutSlot  = require("./loadout_slot.coffee")
+
+modules.exports = class Loadout extends Backbone.View
 
   events:
     "click .character" : "editUnit"
@@ -19,7 +21,7 @@ def 'tbs.views.Loadout', class Loadout extends Backbone.View
   render: =>
     @$("#selected-characters").empty()
     @collection.each (unit, i) =>
-      @$("#selected-characters").append(new tbs.views.LoadoutSlot(
+      @$("#selected-characters").append(new LoadoutSlot(
         model: unit
         slot: i
       ).render().el)

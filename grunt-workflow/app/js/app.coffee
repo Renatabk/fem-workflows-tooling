@@ -1,34 +1,43 @@
-def 'tbs.BattlePlanner', class BattlePlanner
+Units    = require("./collections/units.coffee")
+Router   = require("./router.coffee")
+Editor   = require("./views/stat_editor.coffee")
+Loadout  = require("./views/loadout.coffee")
+Selector = require("./views/character_selector.coffee")
+Unit     = require("./models/unit.coffee")
+UnitData = require("./data/unit_data.coffee")
+_        = require("underscore")
+
+module.exports = class BattlePlanner
 
   constructor: ->
-    @units          = new tbs.collections.Units(@defaultUnits())
-    @loadout_units  = new tbs.collections.Units(@defaultLoadoutUnits())
-    @router         = new tbs.Router(loadout: @loadout_units)
+    @units          = new Units(@defaultUnits())
+    @loadout_units  = new Units(@defaultLoadoutUnits())
+    @router         = new Router(loadout: @loadout_units)
 
     # stat editor
-    @stat_editor = new tbs.views.StatEditor(el: "#stat-editor")
+    @stat_editor = new Editor(el: "#stat-editor")
 
     # loadout
-    @loadout = new tbs.views.Loadout(
+    @loadout = new Loadout(
       el: "#loadout"
       collection: @loadout_units
     ).render()
 
     #character_selector
-    @character_selector = new tbs.views.CharacterSelector(
+    @character_selector = new Selector(
       el: "#character-selector"
       collection: @unitTypesWithoutBase()
+      loadout_units: @loadout_units
     ).render()
 
   unitTypesWithoutBase: =>
     _(@units.groupBy("type")).tap (types) -> delete types.base
 
   defaultLoadoutUnits: =>
-    _(_.range(0,6)).map (slot) =>
-      new tbs.models.Unit
+    _(_.range(0,6)).map (slot) => new Unit
 
   defaultUnits: =>
-    _(tbs.data.Units()).tap (units) =>
+    _(UnitData()).tap (units) =>
       _(units).each (unit) =>
         unit.max_stat_points = @maxStatPointsForRank(unit.rank)
         unit.allocated_stat_points = 0
@@ -42,6 +51,3 @@ def 'tbs.BattlePlanner', class BattlePlanner
 
   start: ->
     Backbone.history.start()
-
-$ -> tbs.BattlePlanner = new tbs.BattlePlanner(); tbs.BattlePlanner.start()
-
