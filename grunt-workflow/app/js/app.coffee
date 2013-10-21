@@ -1,11 +1,13 @@
-Units    = require("./collections/units.coffee")
-Router   = require("./router.coffee")
-Editor   = require("./views/stat_editor.coffee")
-Loadout  = require("./views/loadout.coffee")
-Selector = require("./views/character_selector.coffee")
-Unit     = require("./models/unit.coffee")
-UnitData = require("./data/unit_data.coffee")
-_        = require("underscore")
+Units                = require("./collections/units.coffee")
+Router               = require("./router.coffee")
+Editor               = require("./views/stat_editor.coffee")
+Loadout              = require("./views/loadout.coffee")
+Selector             = require("./views/character_selector.coffee")
+Unit                 = require("./models/unit.coffee")
+UnitData             = require("./data/unit_data.coffee")
+_                    = require("underscore")
+maxStatPointsForRank = require("./config/max_stat_points_for_rank.coffee")
+
 
 module.exports = class BattlePlanner
 
@@ -39,15 +41,8 @@ module.exports = class BattlePlanner
   defaultUnits: =>
     _(UnitData()).tap (units) =>
       _(units).each (unit) =>
-        unit.max_stat_points = @maxStatPointsForRank(unit.rank)
+        unit.max_stat_points = maxStatPointsForRank(unit.rank)
         unit.allocated_stat_points = 0
-
-  maxStatPointsForRank: (rank) =>
-    switch rank
-      when 0 then 10
-      when 1 then 11
-      when 2 then 12
-      when 3 then 13
 
   start: ->
     Backbone.history.start()

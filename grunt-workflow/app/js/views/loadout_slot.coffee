@@ -1,5 +1,5 @@
-Unit     = require("../models/unit.coffee")
-app      = require("../app.coffee")
+Unit                 = require("../models/unit.coffee")
+maxStatPointsForRank = require("../config/max_stat_points_for_rank.coffee")
 
 module.exports = class LoadoutSlot extends Backbone.Fixins.SuperView
 
@@ -83,7 +83,7 @@ module.exports = class LoadoutSlot extends Backbone.Fixins.SuperView
       @$(".help-text").text("Click a unit below")
 
   updateMaxStatPoints: (__, new_rank) =>
-    @model.set("max_stat_points", app.maxStatPointsForRank(new_rank))
+    @model.set("max_stat_points", maxStatPointsForRank(new_rank))
 
 
 

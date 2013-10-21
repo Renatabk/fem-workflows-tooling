@@ -1,1 +1,1 @@
-modules.exports = class UnitStat extends Backbone.Model
+module.exports = class UnitStat extends Backbone.Model

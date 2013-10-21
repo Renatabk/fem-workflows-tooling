@@ -1,6 +1,6 @@
 LoadoutSlot  = require("./loadout_slot.coffee")
 
-modules.exports = class Loadout extends Backbone.View
+module.exports = class Loadout extends Backbone.View
 
   events:
     "click .character" : "editUnit"

@@ -1,4 +1,4 @@
-class StatControl extends Backbone.Fixins.SuperView
+module.exports = class StatControl extends Backbone.Fixins.SuperView
 
   tagName: "li"
 

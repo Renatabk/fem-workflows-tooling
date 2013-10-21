@@ -16,13 +16,13 @@ module.exports = (grunt) ->
       options:
         timestamps: "generated/timestamps"
 
-    coffee:
-      compile:
-        expand: true
-        cwd: 'app/js'
-        src: '**/*.coffee'
-        dest: 'generated/compiled-coffee'
-        ext: '.js'
+    # coffee:
+    #   compile:
+    #     expand: true
+    #     cwd: 'app/js'
+    #     src: '**/*.coffee'
+    #     dest: 'generated/compiled-coffee'
+    #     ext: '.js'
 
     concat:
       app:
@@ -38,11 +38,7 @@ module.exports = (grunt) ->
           "bower_modules/base64js/base64.js"
           "bower_modules/handlebars/handlebars.js"
           "<%= handlebars.compile.dest %>"
-          "generated/compiled-coffee/config/**/*.js"
-          "generated/compiled-coffee/converters.js"
-          "generated/compiled-coffee/data/**/*.js"
-          "generated/compiled-coffee/models/**/*.js"
-          "generated/compiled-coffee/**/*.js"
+          "generated/browserify-bundle.js"
         ]
 
     handlebars:
@@ -85,9 +81,9 @@ module.exports = (grunt) ->
         dest: "dist/index.html"
 
     watch:
-      coffee:
-        files: ["app/js/**/*.coffee"]
-        tasks: ["newer:coffee"]
+      # coffee:
+      #   files: ["app/js/**/*.coffee"]
+      #   tasks: ["newer:coffee"]
 
       app:
         options:
@@ -106,6 +102,6 @@ module.exports = (grunt) ->
   require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks)
 
   # Default task.
-  grunt.registerTask "default", ["less", "handlebars", "newer:coffee", "concat", "copy", "server", "open", "watch"]
-  grunt.registerTask "build", ["clean", "less", "cssmin", "handlebars", "coffee", "concat", "uglify", "copy"]
+  grunt.registerTask "default", ["less", "handlebars", "concat", "copy", "server", "open", "watch"]
+  grunt.registerTask "build", ["clean", "less", "cssmin", "handlebars", "concat", "uglify", "copy"]
   grunt.registerTask "prodsim", ["build", "server", "open", "watch"]

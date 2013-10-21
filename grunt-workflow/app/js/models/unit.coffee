@@ -1,4 +1,4 @@
-modules.exports = class Unit extends Backbone.Model
+module.exports = class Unit extends Backbone.Model
   defaults:
     name: ""
     type: ""
