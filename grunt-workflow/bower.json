@@ -12,6 +12,7 @@
     "jquery": "~2.0.3",
     "base64js": "~1.0.0",
     "underscore": "~1.5.2",
-    "extend.js": "https://github.com/searls/extend.js/releases/download/0.1.0/extend.js"
+    "extend.js": "https://github.com/searls/extend.js/releases/download/0.1.0/extend.js",
+    "angular-route": "1.2.0-rc.3"
   }
 }
